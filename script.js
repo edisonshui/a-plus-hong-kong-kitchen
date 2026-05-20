@@ -187,4 +187,52 @@
     window.addEventListener('load', initMap);
     var poll = setInterval(function () { if (initMap()) clearInterval(poll); }, 200);
   }
+
+  // ── Hero word cycling ──────────────────────────────────────────────────
+  var heroWords = ['stone pot rice', 'chow fun', 'milk tea', 'bolo bao'];
+  var heroWordIdx = 0;
+  var heroEm = document.querySelector('.hero-h1 em');
+  if (heroEm && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(function () {
+      heroEm.classList.add('word-out');
+      setTimeout(function () {
+        heroWordIdx = (heroWordIdx + 1) % heroWords.length;
+        heroEm.textContent = heroWords[heroWordIdx];
+        heroEm.classList.remove('word-out');
+      }, 320);
+    }, 2800);
+  }
+
+  // ── Count-up for rating & review count ────────────────────────────────
+  function countUp(el, target, decimals, duration) {
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = eased * target;
+      el.textContent = decimals ? val.toFixed(decimals) : String(Math.floor(val));
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = decimals ? target.toFixed(decimals) : String(target);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    var ratingStrong = document.querySelector('.reviews-rating strong');
+    var reviewCountEl = document.getElementById('review-count');
+    var reviewsRating = document.querySelector('.reviews-rating');
+    if (reviewsRating && (ratingStrong || reviewCountEl)) {
+      var countFired = false;
+      var countObs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !countFired) {
+          countFired = true;
+          if (ratingStrong) countUp(ratingStrong, 4.6, 1, 1200);
+          if (reviewCountEl) countUp(reviewCountEl, 812, 0, 1500);
+          countObs.disconnect();
+        }
+      }, { threshold: 0.5 });
+      countObs.observe(reviewsRating);
+    }
+  }
 })();

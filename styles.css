@@ -200,6 +200,12 @@ image-slot {
   font-style: italic;
   color: var(--accent-d);
   font-family: var(--font-display);
+  display: inline-block;
+  transition: opacity 300ms var(--ease), transform 300ms var(--ease);
+}
+.hero-h1 em.word-out {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 .hero-zh {
   font-size: 28px; color: var(--accent-d);
