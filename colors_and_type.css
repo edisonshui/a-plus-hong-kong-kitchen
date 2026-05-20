@@ -1,0 +1,175 @@
+/* =========================================================================
+   A+ Hong Kong Kitchen — Design Tokens
+   Import this once at the top of any page:
+     <link rel="stylesheet" href="/colors_and_type.css">
+   ========================================================================= */
+
+/* ---------- Google Fonts (substitutions — see README) ---------------------*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Caveat:wght@400;600;700&family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+:root {
+  /* ===== Color =================================================== */
+
+  /* Ink / neutral */
+  --char:        #0E0B08;   /* wok-char, deepest */
+  --ink:         #1A1612;   /* default body text & linework */
+  --ink-soft:    #3A2F26;   /* soy-brown secondary text */
+  --ink-quiet:   #6B5A4A;   /* tertiary / muted */
+  --rule:        #2A2018;   /* hairline rules */
+
+  /* Brand accents */
+  --yolk:        #E5A11C;   /* brand gold, matches 好好廚房 characters */
+  --yolk-deep:   #B87A0E;   /* hover / pressed yolk */
+  --yolk-soft:   #F4D079;   /* tint, hover wash */
+  --lucky:       #C8252C;   /* HK lucky red — specials, stamps */
+  --lucky-deep:  #9A1A1F;   /* pressed */
+  --lucky-soft:  #F2C9CB;   /* tint */
+  --jade:        #5C8A5E;   /* fresh/available */
+  --jade-deep:   #3D6440;
+
+  /* Paper / surface */
+  --paper:       #F7F1E3;   /* default page bg, warm cream */
+  --paper-warm:  #EFE4CC;   /* secondary surface */
+  --paper-edge:  #E2D4B0;   /* card border on cream */
+  --steam:       #FBFAF6;   /* near-white, plates / hi-key */
+
+  /* Semantic */
+  --bg:          var(--paper);
+  --bg-elev:     var(--steam);
+  --fg:          var(--ink);
+  --fg-muted:    var(--ink-quiet);
+  --border:      var(--ink);
+  --border-soft: var(--paper-edge);
+  --accent:      var(--yolk);
+  --danger:      var(--lucky);
+  --success:     var(--jade);
+
+  /* ===== Type ==================================================== */
+
+  --font-display:  'DM Serif Display', 'Noto Serif TC', Georgia, serif;
+  --font-body:     'DM Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  --font-hand:     'Caveat', cursive;
+  --font-cjk:      'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-cjk-display: 'Noto Serif TC', 'PingFang TC', serif;
+  --font-mono:     ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Sizes — modular scale ~1.20 */
+  --fs-xs:   12px;
+  --fs-sm:   14px;
+  --fs-base: 16px;
+  --fs-md:   18px;
+  --fs-lg:   22px;
+  --fs-xl:   28px;
+  --fs-2xl:  36px;
+  --fs-3xl:  48px;
+  --fs-4xl:  64px;
+  --fs-5xl:  88px;
+
+  /* Line heights */
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.5;
+  --lh-loose: 1.7;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.04em;
+  --tracking-caps:  0.12em;
+
+  /* ===== Spacing ================================================= */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:   12px;
+  --s-4:   16px;
+  --s-5:   24px;
+  --s-6:   32px;
+  --s-7:   48px;
+  --s-8:   64px;
+  --s-9:   96px;
+  --s-10: 128px;
+
+  /* ===== Radius ================================================== */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-pill: 999px;
+
+  /* ===== Border weights ========================================== */
+  --bw-hair: 1px;
+  --bw:      1.5px;
+  --bw-bold: 2.5px;
+
+  /* ===== Shadows ================================================= */
+  --shadow-1: 0 1px 0 rgba(26, 22, 18, 0.08);
+  --shadow-2: 0 4px 12px rgba(26, 22, 18, 0.12);
+  --shadow-ink:   3px 3px 0 var(--ink);
+  --shadow-stamp: 3px 3px 0 var(--lucky);
+  --shadow-yolk:  3px 3px 0 var(--yolk);
+
+  /* ===== Motion ================================================== */
+  --ease:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast:  120ms;
+  --t-base:  200ms;
+  --t-slow:  360ms;
+
+  /* ===== Layout ================================================== */
+  --container:     1200px;
+  --container-narrow: 720px;
+  --nav-h:          72px;
+}
+
+/* ==========================================================================
+   Semantic element styles — opt in by class so we don't fight host pages
+   ========================================================================== */
+
+.ds-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--fg);
+  background: var(--bg);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+.ds-h1, .ds-h2, .ds-h3, .ds-h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+}
+.ds-h1 { font-size: var(--fs-4xl); }
+.ds-h2 { font-size: var(--fs-3xl); }
+.ds-h3 { font-size: var(--fs-2xl); }
+.ds-h4 { font-size: var(--fs-xl); }
+
+.ds-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--lucky);
+}
+
+.ds-cjk        { font-family: var(--font-cjk); }
+.ds-cjk-display{ font-family: var(--font-cjk-display); font-weight: 700; }
+
+.ds-hand {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ds-price {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.ds-mono { font-family: var(--font-mono); }
+
+/* Selection */
+::selection { background: var(--yolk); color: var(--ink); }
