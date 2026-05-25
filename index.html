@@ -48,7 +48,7 @@
     "https://aplushongkongkitchen.com/photos/chow-fun.jpg"
   ],
   "url": "https://aplushongkongkitchen.com/",
-  "telephone": "+1-206-555-0140",
+  "telephone": "+1-206-682-1267",
   "priceRange": "$$",
   "servesCuisine": ["Hong Kong", "Cantonese", "Chinese", "Cha Chaan Teng"],
   "currenciesAccepted": "USD",
@@ -135,7 +135,7 @@
       "name": "Do you take reservations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Walk-ins only. We don't take reservations — come in, put your name down, and we'll usually seat you within fifteen minutes. Larger parties (six or more) can call ahead at (206) 555-0140 and we'll do our best."
+        "text": "Walk-ins only. We don't take reservations — come in, put your name down, and we'll usually seat you within fifteen minutes. Larger parties (six or more) can call ahead at (206) 682-1267 and we'll do our best."
       }
     },
     {
@@ -212,9 +212,9 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="header-actions">
-      <a class="phone" href="tel:+12065550140" aria-label="Call (206) 555-0140">
+      <a class="phone" href="tel:+12066821267" aria-label="Call (206) 682-1267">
         <i data-lucide="phone" aria-hidden="true"></i>
-        <span>(206) 555-0140</span>
+        <span>(206) 682-1267</span>
       </a>
       <a class="btn btn-primary header-cta" href="#visit">
         <i data-lucide="map-pin" aria-hidden="true"></i>
@@ -257,6 +257,12 @@
           Visit us in the CID
           <i data-lucide="arrow-right" aria-hidden="true"></i>
         </a>
+      </div>
+      <div class="hero-delivery">
+        <span class="hero-delivery-label">Order delivery via</span>
+        <a class="hero-delivery-btn" href="https://www.ubereats.com/store/a+-hong-kong-kitchen/5rnh3j5BTwuqU8bO2niDrA" target="_blank" rel="noopener" aria-label="Order on Uber Eats">Uber Eats</a>
+        <span class="hero-delivery-sep" aria-hidden="true">or</span>
+        <a class="hero-delivery-btn" href="https://www.doordash.com/store/a-hong-kong-kitchen-seattle-355945" target="_blank" rel="noopener" aria-label="Order on DoorDash">DoorDash</a>
       </div>
       <dl class="hero-meta">
         <div><dt>Open today</dt><dd>11:30 AM – 9:30 PM</dd></div>
@@ -422,6 +428,81 @@
 
 <!-- ─── FULL MENU ─────────────────────────────────────────── -->
 <style>
+  /* ── Hero delivery strip ─────────────────────────────────────────────── */
+  .hero-delivery {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-delivery-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+  .hero-delivery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  }
+  .hero-delivery-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
+  .hero-delivery-btn:active { transform: translateY(0); }
+  .hero-delivery-sep {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--ink-quiet);
+  }
+
+  /* ── Visit section delivery buttons ────────────────────────────────── */
+  .visit-delivery-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .btn-delivery {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  }
+  .btn-delivery [data-lucide] { width: 15px; height: 15px; stroke-width: 1.75; }
+  .btn-delivery:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
+  .btn-delivery:active { transform: translateY(0); }
+  .btn-delivery:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   .full-menu { padding: 96px 24px; max-width: var(--container); margin: 0 auto; }
   .full-menu .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
   .fm-legend {
@@ -1146,14 +1227,29 @@
         </ul>
       </div>
 
+      <div class="visit-block">
+        <h3 class="visit-block-title"><i data-lucide="package" aria-hidden="true"></i> Order for delivery</h3>
+        <p class="visit-aside">Can't make it in? Order through our delivery partners — same menu, delivered to your door.</p>
+        <div class="visit-delivery-btns">
+          <a class="btn btn-delivery" href="https://www.ubereats.com/store/a+-hong-kong-kitchen/5rnh3j5BTwuqU8bO2niDrA" target="_blank" rel="noopener">
+            <i data-lucide="bike" aria-hidden="true"></i>
+            <span>Order on Uber Eats</span>
+          </a>
+          <a class="btn btn-delivery" href="https://www.doordash.com/store/a-hong-kong-kitchen-seattle-355945" target="_blank" rel="noopener">
+            <i data-lucide="bike" aria-hidden="true"></i>
+            <span>Order on DoorDash</span>
+          </a>
+        </div>
+      </div>
+
       <div class="visit-actions">
         <a class="btn btn-primary" href="https://www.google.com/maps/place/419+6th+Ave+S,+Seattle,+WA+98104" target="_blank" rel="noopener">
           <i data-lucide="navigation" aria-hidden="true"></i>
           <span>Get directions</span>
         </a>
-        <a class="btn" href="tel:+12065550140">
+        <a class="btn" href="tel:+12066821267">
           <i data-lucide="phone" aria-hidden="true"></i>
-          <span>(206) 555-0140</span>
+          <span>(206) 682-1267</span>
         </a>
       </div>
     </div>
@@ -1210,7 +1306,7 @@
           <span class="faq-icon" aria-hidden="true"><i data-lucide="plus"></i></span>
         </summary>
         <div class="faq-a">
-          <p>Walk-ins only. We don't take reservations — come in, put your name down, and we'll usually seat you within fifteen minutes. Larger parties (six or more) can call ahead at <a href="tel:+12065550140">(206) 555-0140</a> and we'll do our best.</p>
+          <p>Walk-ins only. We don't take reservations — come in, put your name down, and we'll usually seat you within fifteen minutes. Larger parties (six or more) can call ahead at <a href="tel:+12066821267">(206) 682-1267</a> and we'll do our best.</p>
         </div>
       </details>
     </li>
@@ -1271,14 +1367,14 @@
     <div class="cta-text">
       <p class="cta-hand">Come hungry —</p>
       <h2 class="ds-h2">419 6th Ave S, Seattle CID</h2>
-      <p class="cta-sub">Open today 11:30 AM – 9:30 PM · Walk-ins welcome · (206) 555-0140</p>
+      <p class="cta-sub">Open today 11:30 AM – 9:30 PM · Walk-ins welcome · (206) 682-1267</p>
     </div>
     <div class="cta-actions">
       <a class="btn btn-primary btn-big" href="https://www.google.com/maps/place/419+6th+Ave+S,+Seattle,+WA+98104" target="_blank" rel="noopener">
         <i data-lucide="navigation" aria-hidden="true"></i>
         <span>Get Directions</span>
       </a>
-      <a class="btn btn-big" href="tel:+12065550140">
+      <a class="btn btn-big" href="tel:+12066821267">
         <i data-lucide="phone" aria-hidden="true"></i>
         <span>Call Us</span>
       </a>
@@ -1300,7 +1396,7 @@
     <div class="footer-col">
       <h4>Find Us</h4>
       <p><b>A+ Hong Kong Kitchen</b><br />419 6th Ave S<br />Seattle, WA 98104</p>
-      <a class="footer-link" href="tel:+12065550140"><i data-lucide="phone" aria-hidden="true"></i> (206) 555-0140</a>
+      <a class="footer-link" href="tel:+12066821267"><i data-lucide="phone" aria-hidden="true"></i> (206) 682-1267</a>
       <a class="footer-link" href="https://www.google.com/maps/place/419+6th+Ave+S,+Seattle,+WA+98104" target="_blank" rel="noopener"><i data-lucide="navigation" aria-hidden="true"></i> Directions</a>
     </div>
 
